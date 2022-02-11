@@ -1,11 +1,13 @@
 import "./App.css";
-import { NavBar } from "./components/index";
+import { TopBar, Page, BottomNav } from "./components/index";
 
 function App() {
   const pageTitle = "Grain Storage";
   return (
     <div className="App">
-      <NavBar title={pageTitle} />
+      <TopBar title={pageTitle} />
+      <Page />
+      <BottomNav />
     </div>
   );
 }

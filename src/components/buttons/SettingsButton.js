@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Menu as MenuIcon } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import { Settings } from "@mui/icons-material";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 
-function MenuButton() {
+function SettingsButton() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -11,6 +12,15 @@ function MenuButton() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleAccount = () => {
+    <Link to="/account"></Link>;
+    handleClose();
+  };
+  const handleSettings = () => {
+    <Link to="/settings"></Link>;
+    handleClose();
   };
 
   return (
@@ -23,7 +33,7 @@ function MenuButton() {
         onClick={handleMenu}
         color="inherit"
       >
-        <MenuIcon />
+        <Settings />
       </IconButton>
       <Menu
         id="menu-appbar"
@@ -40,11 +50,15 @@ function MenuButton() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleAccount}>
+          <Link to="/account">Account</Link>
+        </MenuItem>
+        <MenuItem onClick={handleSettings}>
+          <Link to="/settings">Settings</Link>
+        </MenuItem>
       </Menu>
     </div>
   );
 }
 
-export default MenuButton;
+export default SettingsButton;
